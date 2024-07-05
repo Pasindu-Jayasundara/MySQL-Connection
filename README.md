@@ -42,7 +42,7 @@ Developed to make it easy to establish a connection to the MySQL database
    ```java
    
    try {
-       MySQL.executeIUD("UPDATE `test` SET `name`=? WHERE `id`=?", "Kamal","5");
+       Integer executeIUD = MySQL.executeIUD("UPDATE `test` SET `name`=? WHERE `id`=?", "Kamal","5");
    } catch (Exception e) {
        e.printStackTrace();
    }
@@ -65,7 +65,7 @@ Developed to make it easy to establish a connection to the MySQL database
 
   #### Outputs:
   1) .createConnection(ip, port, database, userName, password) -> no return value
-  2) .executeIUD(query, args); -> no return value
+  2) .executeIUD(query, args); -> execution id
   3) .executeSearch(query, args); -> ResultSet
      ```java
      import java.sql.ResultSet;
@@ -85,7 +85,7 @@ public class Test {
         try {
             MySQL.createConnection(ip, port, database, userName, password);
             
-            MySQL.executeIUD(query, args);
+            Integer executeIUD = MySQL.executeIUD(query, args);
             
             ResultSet executeSearch = MySQL.executeSearch(query, args);
         } catch (Exception e) {
